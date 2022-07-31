@@ -5,6 +5,7 @@ The script compressed image files
 
 import os
 import glob
+from tqdm import tqdm
 from pathlib import Path
 from PIL import Image, ImageOps
 from typing import List
@@ -66,7 +67,7 @@ def main() -> None:
     images_stav = glob.glob("Images_Stav/**/*.jpg", recursive = True)
     images = merge_lists(images_antonis, images_stav)
 
-    for image in images:
+    for image in tqdm(images):
         compressPicture(image)
 
 if __name__ == "__main__":
