@@ -23,7 +23,7 @@ def full_path(path: str) -> str:
 	cwd = os.getcwd()
 	return os.path.join(cwd,path)
 
-def new_image_name(path: str, class_name: str, counter: int = 0, file_format: str = "jpg") -> str:
+def new_image_name(path: str, class_name: str, counter: int = 0, file_format: str = ".jpg") -> str:
 	"""
 	The function takes the relative path of a file and returns a new path
 	with the file renamed as "{class_name}_{counter}_{file_format}"
