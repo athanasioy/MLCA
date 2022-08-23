@@ -6,7 +6,8 @@ data into usable format for the neural netowork to be trained
 import os
 import glob
 from typing import List
-
+import random
+import string
 
 
 def path_extractor(path: str, path_seperator: str = "/") -> str:
@@ -22,6 +23,10 @@ def full_path(path: str) -> str:
 	"""
 	cwd = os.getcwd()
 	return os.path.join(cwd,path)
+
+def id_generator() -> str:
+	"""Generates an photo ID"""
+	return random.choices(string.ascii_letters, k = 10)
 
 def new_image_name(path: str, class_name: str, counter: int = 0, file_format: str = ".jpg") -> str:
 	"""
@@ -68,7 +73,7 @@ class photoRenamer(object):
 			else: # if class_name changes, reset counter
 				counter = 0
 			temp = class_name
-
+			
 
 if __name__ == "__main__":
 
