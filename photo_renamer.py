@@ -31,7 +31,7 @@ def id_generator() -> str:
 def new_image_name(path: str, class_name: str, file_format: str = ".jpg") -> str:
 	"""
 	The function takes the relative path of a file and returns a new path
-	with the file renamed as "{class_name}_{counter}_{file_format}"
+	with the file renamed as "{class_name}_{photo_id}_{file_format}"
 	"""
 	
 	photo_path = path_extractor(path)
@@ -45,7 +45,7 @@ class photoRenamer(object):
 	This Class takes photo file paths which are inside folders.
 	The folder name depicts label that the image represents.
 	With the .rename method, the images are renamed to
-	{class_name}_{counter}_{file_format} 
+	{class_name}_{photo_id}_{file_format} 
 	"""
 
 	def __init__(self, photo_paths: List[str]):
@@ -71,7 +71,7 @@ class photoRenamer(object):
 if __name__ == "__main__":
 
 
-	file_paths = glob.glob("**/*.JPG",recursive = True)
+	file_paths = glob.glob("**/*.jpg",recursive = True)
 	renamer = photoRenamer(file_paths)
 	renamer.get_class_names_from_folders() # Get Classes from Folders
 	renamer.rename_photos()
