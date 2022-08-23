@@ -28,7 +28,7 @@ def id_generator() -> str:
 	"""Generates an photo ID"""
 	return random.choices(string.ascii_letters, k = 10)
 
-def new_image_name(path: str, class_name: str, counter: int = 0, file_format: str = ".jpg") -> str:
+def new_image_name(path: str, class_name: str, file_format: str = ".jpg") -> str:
 	"""
 	The function takes the relative path of a file and returns a new path
 	with the file renamed as "{class_name}_{counter}_{file_format}"
@@ -36,7 +36,8 @@ def new_image_name(path: str, class_name: str, counter: int = 0, file_format: st
 	
 	photo_path = path_extractor(path)
 	photo_path = full_path(photo_path)
-	new_name = class_name+"_"+str(counter)+file_format
+	photo_id = id_generator()
+	new_name = class_name+"_"+photo_id+file_format
 	return os.path.join(photo_path,new_name)
 
 class photoRenamer(object):
@@ -61,18 +62,10 @@ class photoRenamer(object):
 	
 
 	def rename_photos(self):
-		counter = 0
-		temp = "" # Used for checking when class name changes
 		for old_image_name,class_name in zip(self.photos,self.classes):
 
 			image_name_new = new_image_name(old_image_name,class_name,counter)
-
 			os.rename(old_image_name,image_name_new)
-			if temp == class_name: 
-				counter += 1
-			else: # if class_name changes, reset counter
-				counter = 0
-			temp = class_name
 			
 
 if __name__ == "__main__":
