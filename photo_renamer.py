@@ -26,7 +26,7 @@ def full_path(path: str) -> str:
 
 def id_generator() -> str:
 	"""Generates an photo ID"""
-	return random.choices(string.ascii_letters, k = 10)
+	return "".join(random.choices(string.ascii_letters, k = 10))
 
 def new_image_name(path: str, class_name: str, file_format: str = ".jpg") -> str:
 	"""
@@ -64,7 +64,7 @@ class photoRenamer(object):
 	def rename_photos(self):
 		for old_image_name,class_name in zip(self.photos,self.classes):
 
-			image_name_new = new_image_name(old_image_name,class_name,counter)
+			image_name_new = new_image_name(old_image_name,class_name)
 			os.rename(old_image_name,image_name_new)
 			
 
@@ -75,3 +75,7 @@ if __name__ == "__main__":
 	renamer = photoRenamer(file_paths)
 	renamer.get_class_names_from_folders() # Get Classes from Folders
 	renamer.rename_photos()
+	file_paths_after = glob.glob("**/*.jpg",recursive = True)
+	print(f"Number of jpg images before {len(file_paths)}")
+	print(f"Number of jpg images after renaming {len(file_paths_after)}")
+	print(f"Difference of {len(file_paths)-len(file_paths_after)}")
