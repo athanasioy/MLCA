@@ -9,10 +9,10 @@ from tqdm import tqdm
 from pathlib import Path
 from PIL import Image, ImageOps
 from typing import List
-from data_cleaner import full_path
 
 def merge_lists(list1: List[str], list2: List[str]) -> List:
     return list1 + list2
+
 
 def path_extractor(path: str, path_seperator: str = "/") -> str:
     """
@@ -22,10 +22,17 @@ def path_extractor(path: str, path_seperator: str = "/") -> str:
     return path_seperator.join(path.split(path_seperator)[:-1])
 
 
+def full_path(path: str) -> str:
+	""" Returns the absolute path when fed a relative path"""
+	cwd = os.getcwd()
+	return os.path.join(cwd,path)
+
+
 def createDirectory(path: str) -> None:
     """Creates the path RECURSIVELY if it does not exist"""
     if not os.path.isdir(path):
         os.makedirs(path)
+
 
 def deleteExifTags(image: Image) -> None:
     """Deletes all tags except the one that rotates the image when saved"""
@@ -38,7 +45,6 @@ def deleteExifTags(image: Image) -> None:
     # Put the new exif object in the original image
     new_exif = exif.tobytes()
     image.info["exif"] = new_exif
-
 
 
 def compressPicture(filepath: str, output_folder:str = "compressed", quality: int = 25) -> None:
