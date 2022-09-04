@@ -24,7 +24,7 @@ Models weights to load and test the model are available at google drive due to s
 
 https://drive.google.com/drive/folders/13cbnvyiROgYsynWK98OMYu13XHbVIYoK?usp=sharing
 
-### File Explaination
+### File Explanation
 
 **Model_Building.ipynb**
 
