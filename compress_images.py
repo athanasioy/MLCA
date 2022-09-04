@@ -1,5 +1,5 @@
 """
-The script compressed image files
+The script compresses image files
 """
 
 
@@ -40,7 +40,7 @@ def deleteExifTags(image: Image) -> None:
     # Remove all exif tags
     for k in exif.keys():
         if k != 0x0112:
-            exif[k] = None # If I don't set it to None first (or print it) the del fails for some reason. 
+            exif[k] = None # If I don't set it to None first (or print it) the del fails for some reason.
             del exif[k]
     # Put the new exif object in the original image
     new_exif = exif.tobytes()
@@ -61,10 +61,10 @@ def compressPicture(filepath: str, output_folder:str = "compressed", quality: in
     cwd = os.getcwd()
     image_path = os.path.join(cwd,output_folder,filepath) # Actual image path into the compressed folder directory
     output_path = path_extractor(image_path) # Creates the compressed folder directory
-    
-          
+
+
     createDirectory(output_path)
-    
+
     picture.save(image_path, quality = quality, format = "JPEG")
 
 def main() -> None:

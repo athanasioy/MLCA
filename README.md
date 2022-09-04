@@ -14,6 +14,12 @@ Students Involved
 
 Classify supermarket products given an image using Machine Learning methods.
 
+### Model Weights
+
+Models weights to load and test the model are available at google drive due to size constrains
+
+https://drive.google.com/drive/folders/13cbnvyiROgYsynWK98OMYu13XHbVIYoK?usp=sharing
+
 ### File Explaination
 
 **Model_Building.ipynb**
@@ -22,9 +28,9 @@ Main script for training our models.
 The script reads our photo data in the form of .npz (compressed numpy array) which is located inside google drive.
 The script is also responsible for splitting our X and Y data into train and test dataset respectively.
 
-Trains a Convolutional Neural Network, a VGG16, a RESNET50 and an InceptionV3 network and exports training and test perfomance infromation.
+Trains a Convolutional Neural Network, a VGG16, a RESNET50 and an InceptionV3 network and exports training and test performance information.
 
-The notebook is run Google Colab only due to the amount of memery and computing power required to train the models
+The notebook is run Google Colab only due to the amount of memory  and computing power required to train the models
 
 **photo_renamer.py**
 
@@ -45,5 +51,4 @@ Run in Google Colab only.
 
 **compress_images.py**
 
-Script responsible for compressing the images before uploading to google drive. Necessary for uploading images to google drive in a resonable amount of time
-
+Script responsible for compressing the images before uploading to google drive. Necessary for uploading images to google drive in a reasonable amount of time
