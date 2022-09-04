@@ -56,3 +56,8 @@ Run in Google Colab only.
 **compress_images.py**
 
 Script responsible for compressing the images before uploading to google drive. Necessary for uploading images to google drive in a reasonable amount of time
+
+**augmentation-script.py**
+
+Script used image augmentation (did not make it into the final dataset).
+It takes as input one image and produces 20 different variations of the same photo.
