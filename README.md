@@ -1,5 +1,9 @@
 # Machine Learning and Content Analytics
 *Course on Machine Learning and Content Analytics, MSc. in Business Analytics, AUEB*
+*Year 2021-2022*
+
+*Professor Haris Papageorgiou*
+*Assistant Professor George Perakis*
 
 Students Involved
 
